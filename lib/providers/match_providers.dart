@@ -44,7 +44,7 @@ class MatchProvider extends ChangeNotifier {
       String id,
       MatchModel match,
       ) async {
-    await _firestore
+    await FirebaseFirestore.instance
         .collection('matches')
         .doc(id)
         .update(match.toMap());

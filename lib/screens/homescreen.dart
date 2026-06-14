@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart' as my_auth;
 import '../providers/match_providers.dart';
 import '../widgets/matchcardwidget.dart';
 import 'add_match_screen.dart';
@@ -20,7 +21,24 @@ class HomeScreen extends StatelessWidget {
         title: const Text(
           'Cricket Live Score',
         ),
+
         centerTitle: true,
+
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.logout,
+            ),
+
+            onPressed: () async {
+              await Provider.of<
+                  my_auth.AuthProvider>(
+                context,
+                listen: false,
+              ).signOut();
+            },
+          ),
+        ],
       ),
 
       body:
@@ -178,6 +196,8 @@ class HomeScreen extends StatelessWidget {
           Icons.add,
         ),
       ),
+
+
     );
   }
 }

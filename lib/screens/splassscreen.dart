@@ -1,7 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-
 import 'loginscreen.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +17,7 @@ class _SplashScreenState
   void initState() {
     super.initState();
 
-    Future.delayed(
+    Timer(
       const Duration(seconds: 2),
           () {
         Navigator.pushReplacement(
@@ -34,28 +33,22 @@ class _SplashScreenState
 
   @override
   Widget build(BuildContext context) {
-
     return const Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment:
           MainAxisAlignment.center,
-
           children: [
-
             Icon(
               Icons.sports_cricket,
               size: 100,
             ),
-
             SizedBox(height: 20),
-
             Text(
               "Cricket Live Score",
               style: TextStyle(
-                fontSize: 28,
-                fontWeight:
-                FontWeight.bold,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
